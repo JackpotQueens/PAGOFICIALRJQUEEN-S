@@ -629,7 +629,7 @@ if(btnLock && panelPlanilla) {
 }
 
 if(formRegistro && cuerpoTabla) {
-    const ADMINS_AUTORIZADOS = ["mariacajera9903", "alecajerah002", "fabicajera9930", "marcecajera58gan", "paulacajera038", "antonellacajera0037", "brisacajera1745", "aguscajera0037", "yamicajera71gan", "luisacajera0376", "adminjackpotsqueen"];
+    const ADMINS_AUTORIZADOS = ["mariacajera9903", "alecajerah002", "romicajeramul17", "fabicajera9930", "marcecajera58gan", "paulacajera038", "antonellacajera0037", "brisacajera1745", "aguscajera0037", "yamicajera71gan", "luisacajera0376", "adminjackpotsqueen"];
     
     function mostrarNotificacionExito() {
         let notif = document.getElementById('notif-exito');
