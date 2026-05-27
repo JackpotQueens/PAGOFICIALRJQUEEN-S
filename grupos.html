@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupos - Casino Realeza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <canvas id="royal-casino-visuals"></canvas>
+    <div id="bg-sparkles" class="bg-sparkles-container"></div>
+
+    <div class="menu-hamburguesa menu-hamburguesa-right" id="btn-menu">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu-lateral" id="menu-lateral">
+        <div class="cerrar-menu" id="btn-cerrar">&times;</div>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="jackpots.html">JACKPOTS</a></li>
+            <li><a href="cajeros.html">CAJEROS</a></li>
+            <li><a href="sorteos.html">SORTEOS</a></li>
+            <li><a href="grupos.html">GRUPOS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        
+        <header class="top-banner-section">
+            <div class="banner-wrapper">
+                <video autoplay loop muted playsinline class="elite-banner">
+                    <source src="banner.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="electric-line-divider-pro"></div>
+        </header>
+
+        <nav class="quick-access-menu-pro" id="botonera-scroll">
+            <button class="neon-moving-btn btn-circular-inicio" onclick="window.location.href='index.html'"><span>INICIO</span></button>
+            <button class="neon-moving-btn btn-color-rosa" onclick="window.location.href='contacto.html'"><span>CONTACTO</span></button>
+            <button class="neon-moving-btn btn-color-verde" onclick="window.location.href='jackpots.html'"><span>JACKPOTS</span></button>
+            <button class="neon-moving-btn btn-color-rojo" onclick="window.location.href='cajeros.html'"><span>CAJEROS</span></button>
+            <button class="neon-moving-btn btn-color-turquesa" onclick="window.location.href='sorteos.html'"><span>SORTEOS</span></button>
+            <button class="neon-moving-btn btn-color-naranja" onclick="window.location.href='grupos.html'"><span>GRUPOS</span></button>
+        </nav>
+
+        <section class="espacio-contenido">
+            
+            <div class="elite-title-container">
+                <div class="falling-sparkles-container">
+                    <div class="f-sparkle fs-1"></div><div class="f-sparkle fs-2"></div>
+                    <div class="f-sparkle fs-3"></div><div class="f-sparkle fs-4"></div>
+                </div>
+                
+                <h1 class="royal-jackpot-title" data-text="GRUPOS OFICIALES">GRUPOS OFICIALES</h1>
+            </div>
+            
+            <div class="cards-grid-container" style="display: flex; justify-content: center; width: 100%;">
+                
+                <div class="neon-card contact-card card-grupos-page" style="width: 100%; max-width: 500px;">
+                    
+                    <div class="sub-contenedor-lineas" style="border-radius: 12px; z-index: 1;">
+                        <span class="sub-neon sub-neon-arriba"></span>
+                        <span class="sub-neon sub-neon-derecha"></span>
+                        <span class="sub-neon sub-neon-abajo"></span>
+                        <span class="sub-neon sub-neon-izquierda"></span>
+                    </div>
+
+                    <div class="card-content centered-contact" style="z-index: 2;">
+                        <div class="lottie-title-wrapper dual-lottie">
+                            <lottie-player src="whatsapp.json" speed="1" style="width: 55px; height: 55px; min-width: 55px;" loop autoplay></lottie-player> 
+                            <h3 class="contact-title-color" style="text-shadow: 0 0 15px #FFD700; font-size: 32px;">GRUPOS</h3>
+                            <lottie-player src="telegram.json" speed="1" style="width: 55px; height: 55px; min-width: 55px;" loop autoplay></lottie-player> 
+                        </div>
+                        
+                        <p class="contact-subtitle" style="font-size: 13px; color: #FFF; text-shadow: 0 2px 5px #000; margin-bottom: 20px;">GRUPOS DIRECTOS UNITE Y NO TE PIERDAS NADA, GANÁ SIEMPRE</p>
+                        
+                        <div class="btn-grid-stack" style="gap: 15px;">
+                            <a href="https://whatsapp.com/channel/0029Vb7y8FaCsU9SlZrzSK2p" target="_blank" rel="noopener noreferrer" class="social-neon-btn btn-wa-grupo"><span>Canal Oficial</span></a>
+                            <a href="https://t.me/+8wlrmxlC3A4xY2Ux" target="_blank" rel="noopener noreferrer" class="social-neon-btn btn-tg-grupo"><span>Grupo Dinámicas</span></a>
+                            <a href="https://t.me/+wJsTbLByd1BiYWYx" target="_blank" rel="noopener noreferrer" class="social-neon-btn btn-tg-grupo"><span>Grupo para Promo</span></a>
+                        </div>
+
+                        <p class="texto-gordo-animado" style="font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 900; margin-top: 25px; line-height: 1.3; text-transform: uppercase; color: #FFF; text-shadow: 0 2px 5px #000;">
+                            UNITE AHORA Y GANÁ SIEMPRE CON LAS REINAS DEL JACKPOT
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div style="height: 150px;"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

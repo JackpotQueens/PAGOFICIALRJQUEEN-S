@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas Jackpot - Casino Realeza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+        .bloque-instrucciones-premium {
+            background: rgba(10, 0, 26, 0.85);
+            border: 3px solid #FFD700;
+            border-radius: 30px;
+            padding: 20px 30px; /* Ajustado para achicar el rectángulo */
+            margin: 20px auto;
+            max-width: 950px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), inset 0 0 20px rgba(255, 215, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .instrucciones-flex-personajes { display: flex; align-items: center; justify-content: space-around; width: 100%; gap: 20px; }
+        .lottie-personaje { width: 280px; height: 280px; flex-shrink: 0; filter: drop-shadow(0 0 15px rgba(255,255,255,0.2)); }
+        .textos-instrucciones-centro { flex: 1; text-align: left; }
+        .lista-pasos-premium { list-style: none; padding: 0; margin: 0; }
+        .lista-pasos-premium li {
+            color: #FFFFFF;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 26px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+        }
+        .lista-pasos-premium li i { color: #39FF14; margin-right: 15px; font-size: 28px; filter: drop-shadow(0 0 8px #39FF14); }
+        
+        @media (max-width: 900px) {
+            .instrucciones-flex-personajes { flex-direction: column; }
+            .lottie-personaje { width: 220px; height: 220px; }
+            .lista-pasos-premium li { font-size: 20px; }
+            .bloque-instrucciones-premium { width: 95%; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="royal-casino-visuals"></canvas>
+    <div id="bg-sparkles" class="bg-sparkles-container"></div>
+
+    <div class="menu-hamburguesa menu-hamburguesa-right" id="btn-menu">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu-lateral" id="menu-lateral">
+        <div class="cerrar-menu" id="btn-cerrar">&times;</div>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="jackpots.html">JACKPOTS</a></li>
+            <li><a href="cajeros.html">CAJEROS</a></li>
+            <li><a href="sorteos.html">SORTEOS</a></li>
+            <li><a href="grupos.html">GRUPOS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="top-banner-section">
+            <div class="banner-wrapper">
+                <video autoplay loop muted playsinline class="elite-banner">
+                    <source src="banner.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="electric-line-divider-pro"></div>
+        </header>
+
+        <nav class="quick-access-menu-pro" id="botonera-scroll">
+            <button class="neon-moving-btn btn-circular-inicio" onclick="window.location.href='index.html'"><span>INICIO</span></button>
+            <button class="neon-moving-btn btn-color-rosa" onclick="window.location.href='contacto.html'"><span>CONTACTO</span></button>
+            <button class="neon-moving-btn btn-color-verde" onclick="window.location.href='jackpots.html'"><span>JACKPOTS</span></button>
+            <button class="neon-moving-btn btn-color-rojo" onclick="window.location.href='cajeros.html'"><span>CAJEROS</span></button>
+            <button class="neon-moving-btn btn-color-turquesa" onclick="window.location.href='sorteos.html'"><span>SORTEOS</span></button>
+            <button class="neon-moving-btn btn-color-naranja" onclick="window.location.href='grupos.html'"><span>GRUPOS</span></button>
+        </nav>
+
+        <section class="espacio-contenido">
+            
+            <div class="elite-title-container">
+                <h1 class="royal-jackpot-title" data-text="CARTAS JACKPOT">CARTAS JACKPOT</h1>
+                <div class="dynamic-subtitle-fullwidth subtitle-dorado">
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    <div class="dynamic-subtitle-track">
+                        <span class="dyn-sub">INGRESA TU CÓDIGO ÚNICO PARA DESBLOQUEAR</span>
+                        <span class="dyn-sub">VOLTEA CARTAS HASTA REVELAR 3 PREMIOS IDÉNTICOS</span>
+                        <span class="dyn-sub">RECLAMA TU PREMIO EN EL WHATSAPP OFICIAL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ruleta-game-area">
+                <div class="ruleta-board-box">
+
+                    <div class="bloque-instrucciones-premium">
+                        <div class="instrucciones-flex-personajes">
+                            <div class="lottie-personaje">
+                                <lottie-player src="cartas-izq.json" speed="1" loop autoplay></lottie-player>
+                            </div>
+                            <div class="textos-instrucciones-centro">
+                                <ul class="lista-pasos-premium">
+                                    <li><i class="fa-solid fa-circle-check"></i> CARGA $10.000 SIN TOPE AHORA</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> INGRESA TU CODIGO Y DA VUELTA LAS CARTAS</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> ENVIANOS CAPTURA DE TU EXTRA A LA LÍNEA QUE CARGASTE</li>
+                                    <li><i class="fa-solid fa-circle-check"></i> TE DEPOSITAMOS EL EXTRA JUNTO A TU CARGA</li>
+                                </ul>
+                            </div>
+                            <div class="lottie-personaje">
+                                <lottie-player src="cartas-der.json" speed="1" loop autoplay></lottie-player>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-validator-box">
+                        <input type="text" id="codigo-cartas" placeholder="INGRESA TU CÓDIGO AQUÍ" autocomplete="off" spellcheck="false">
+                        <p id="mensaje-codigo" class="msg-codigo"></p>
+                    </div>
+
+                    <div class="marco-pragmatic marco-cartas">
+                        <div class="cartas-outer-wrapper">
+                            <div class="cartas-grid-tablero" id="tablero-cartas"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div style="height: 150px;"></div>
+        </section>
+    </main>
+
+    <div id="modal-ganador" class="modal-overlay hidden modal-rojo">
+        <div class="modal-box-neon">
+            <span class="modal-neon-line"></span><span class="modal-neon-line"></span>
+            <span class="modal-neon-line"></span><span class="modal-neon-line"></span>
+            
+            <button class="btn-cerrar-modal" id="btn-cerrar-modal">✕</button>
+
+            <div class="modal-contenido">
+                <div class="modal-stars">★ ★ ★ ★ ★</div>
+                <h2 class="texto-felicidades">¡JACKPOT REVELADO!</h2>
+                
+                <h1 id="texto-premio" class="texto-premio-dorado"></h1>
+                <p id="texto-codigo-usado" class="texto-codigo-usado"></p>
+                
+                <p class="instruccion-modal" style="color: rgba(255,255,255,.7); font-size: 13px; margin-bottom: 20px;">Tu premio fue registrado. Sacá la captura y reclamalo por WhatsApp.</p>  
+                <div class="botones-modal-container">
+                    <button class="btn-modal btn-captura" id="btn-captura">📸 SACAR CAPTURA</button>
+                    <button class="btn-modal btn-reclamar-premio" id="btn-reclamar">💬 RECLAMAR YA</button>
+                </div>
+                
+                <p class="instruccion-captura">AL PRESIONAR 'RECLAMAR YA', SE ABRIRÁ WHATSAPP. ASEGÚRATE DE ADJUNTAR LA CAPTURA GUARDADA Y ENVIAR EL MENSAJE.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

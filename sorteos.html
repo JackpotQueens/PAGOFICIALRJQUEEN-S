@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sorteos - Casino Realeza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+    <canvas id="royal-casino-visuals"></canvas>
+    <div id="bg-sparkles" class="bg-sparkles-container"></div>
+
+    <div class="menu-hamburguesa menu-hamburguesa-right" id="btn-menu">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu-lateral" id="menu-lateral">
+        <div class="cerrar-menu" id="btn-cerrar">&times;</div>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="jackpots.html">JACKPOTS</a></li>
+            <li><a href="cajeros.html">CAJEROS</a></li>
+            <li><a href="sorteos.html">SORTEOS</a></li>
+            <li><a href="grupos.html">GRUPOS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header class="top-banner-section">
+            <div class="banner-wrapper">
+                <video autoplay loop muted playsinline disablePictureInPicture preload="auto" class="elite-banner">
+                    <source src="banner.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="electric-line-divider-pro"></div>
+        </header>
+
+        <nav class="quick-access-menu-pro" id="botonera-scroll">
+            <button class="neon-moving-btn btn-circular-inicio" onclick="window.location.href='index.html'"><span>INICIO</span></button>
+            <button class="neon-moving-btn btn-color-rosa" onclick="window.location.href='contacto.html'"><span>CONTACTO</span></button>
+            <button class="neon-moving-btn btn-color-verde" onclick="window.location.href='jackpots.html'"><span>JACKPOTS</span></button>
+            <button class="neon-moving-btn btn-color-rojo" onclick="window.location.href='cajeros.html'"><span>CAJEROS</span></button>
+            <button class="neon-moving-btn btn-color-azul" onclick="window.location.href='sorteos.html'"><span>SORTEOS</span></button>
+            <button class="neon-moving-btn btn-color-naranja" onclick="window.location.href='grupos.html'"><span>GRUPOS</span></button>
+        </nav>
+
+        <section class="espacio-contenido">
+            
+            <div class="elite-title-container-clean">
+                <div class="falling-sparkles-container">
+                    <div class="f-sparkle fs-1"></div><div class="f-sparkle fs-2"></div>
+                    <div class="f-sparkle fs-3"></div><div class="f-sparkle fs-4"></div>
+                </div>
+                
+                <h1 class="royal-jackpot-title" data-text="SORTEOS">SORTEOS</h1>
+                
+                <div class="dynamic-subtitle-fullwidth subtitle-dorado">
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    <div class="dynamic-subtitle-track">
+                        <span class="dyn-sub">CON TU CARGA PODÉS GANAR AHORA</span>
+                        <span class="dyn-sub">PAGOS Y CARGAS 24/7 - JUGÁ AHORA</span>
+                        <span class="dyn-sub">TODO HABILITADO SIN RESTRICCIONES</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contenedor-cartas-sorteo">
+
+                <div class="carta-bordo carta-grande">
+                    
+                    <div class="lineas-viajeras-animadas">
+                        <span class="linea-v linea-arriba"></span>
+                        <span class="linea-v linea-derecha"></span>
+                        <span class="linea-v linea-abajo"></span>
+                        <span class="linea-v linea-izquierda"></span>
+                    </div>
+
+                    <div class="layout-rectangular-sorteo">
+                        
+                        <div class="col-textos">
+                            
+                            <div class="titulo-con-corona-flex" style="flex-direction: column; align-items: center;">
+                                <lottie-player src="corona.json" background="transparent" speed="1" class="corona-exacta" loop autoplay style="width: 120px; height: 120px; margin-bottom: -45px; z-index: 2;"></lottie-player>
+                                <svg viewBox="0 0 700 120" class="svg-curved-text" style="z-index: 1;">
+                                    <defs>
+                                        <linearGradient id="goldSweeping" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#B8860B" />
+                                            <stop offset="25%" stop-color="#FFDF00" />
+                                            <stop offset="50%" stop-color="#FFFFFF" />
+                                            <stop offset="75%" stop-color="#FFDF00" />
+                                            <stop offset="100%" stop-color="#B8860B" />
+                                            <animate attributeName="x1" values="-100%; 100%" dur="3s" repeatCount="indefinite" />
+                                            <animate attributeName="x2" values="0%; 200%" dur="3s" repeatCount="indefinite" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path id="curve" d="M 20 100 Q 350 80 680 100" fill="transparent" />
+                                    <text font-family="'Oswald', sans-serif" font-weight="900" font-size="65px" fill="url(#goldSweeping)" stroke="#FFD700" stroke-width="1.5" filter="drop-shadow(0px 0px 8px rgba(255,215,0,0.8))">
+                                        <textPath href="#curve" startOffset="50%" text-anchor="middle">CORONAS JACKPOTS</textPath>
+                                    </text>
+                                </svg>
+                            </div>
+
+                            <p class="texto-gordo-animado mt-2">MÁS CORONAS JUNTAS, MÁS CHANCES TENÉS DE SER UNO DE LOS GANADORES DE</p>
+                            
+                            <div class="premio-con-corona">
+                                <h1 class="royal-jackpot-title premio-gigante" data-text="$2.000.000">$2.000.000</h1>
+                                <lottie-player src="elemento-millones.json" background="transparent" speed="1" class="lottie-millones" loop autoplay></lottie-player>
+                            </div>
+
+                            <p class="texto-gordo-animado mt-2">¡PARTICIPÁ AHORA CON TODAS TUS CARGAS DE $1.000 EN ADELANTE!</p>
+                            
+                            <div class="cuadro-morado-dorado">
+                                <p>GANÁ A LO GRANDE CON LAS REINAS DEL JACKPOT</p>
+                            </div>
+
+                            <div class="seccion-redes">
+                                <div class="fondo-resalte-blanco">
+                                    <p class="titulito-blanco-resaltado">PEDÍ TUS CORONAS EN LAS LÍNEAS DIRECTAS Y OFICIALES</p>
+                                </div>
+                                <div class="botones-fila-premium">
+                                    <a href="https://t.me/lineadirectarjq" target="_blank" class="btn-ultra btn-tg"><i class="fa-brands fa-telegram"></i> @lineadirectarjq</a>
+                                    <a href="https://t.me/lineadirectarjq1" target="_blank" class="btn-ultra btn-tg"><i class="fa-brands fa-telegram"></i> @lineadirectarjq1</a>
+                                </div>
+                                
+                                <p class="royal-jackpot-title texto-facebook-dorado mt-2" data-text="SE TRANSMITE POR FACEBOOK">SE TRANSMITE POR FACEBOOK</p>
+                                <div class="botones-fila-premium">
+                                    <a href="https://www.facebook.com/share/1B593wqMoV/" target="_blank" class="btn-ultra btn-fb"><i class="fa-brands fa-facebook"></i> LAS REINAS DEL JACKPOT</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-visuales">
+                            
+                            <div class="celular-marco-premium">
+                                
+                                <div class="lineas-viajeras-animadas">
+                                    <span class="linea-v linea-arriba"></span>
+                                    <span class="linea-v linea-derecha"></span>
+                                    <span class="linea-v linea-abajo"></span>
+                                    <span class="linea-v linea-izquierda"></span>
+                                </div>
+
+                                <div class="telon-escenario" id="escenario-ganadores">
+                                    <div class="telon-fondo-negro">
+                                        <h3 class="pantalla-texto-ganador neon-cyan">PRÓXIMAMENTE<br>GANADORES</h3>
+                                        <p class="pantalla-texto-sub neon-pink">VOS PODÉS SER UNO</p>
+                                        <p class="pantalla-texto-accion blanco-brillante">CARGÁ AHORA</p>
+                                        <div id="contenedor-capturas"></div>
+                                    </div>
+                                    <div class="cortina cortina-teatro cortina-izq"></div>
+                                    <div class="cortina cortina-teatro cortina-der"></div>
+                                    <div class="btn-dorado-redondo-animado" id="btn-abrir-telon">
+                                        <span>CLIC<br>AQUÍ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contador-animado-wrapper">
+                                <h3 class="reloj-title-glow neon-blanco" style="margin-bottom: 15px;">EL SORTEO COMIENZA EN:</h3>
+                                <div id="countdown-sorteo" class="reloj-cristal-3d">
+                                    <div class="digito-animado"><span id="cd-days">00</span><small>DÍAS</small></div>
+                                    <div class="digito-animado"><span id="cd-hours">00</span><small>HRS</small></div>
+                                    <div class="digito-animado"><span id="cd-mins">00</span><small>MIN</small></div>
+                                    <div class="digito-animado"><span id="cd-secs">00</span><small>SEG</small></div>
+                                </div>
+                                <div class="fecha-badge-gigante">
+                                    <i class="fa-solid fa-calendar-days icono-calendario-rosa"></i> 15 DE AGOSTO | 21:00 HS ARG
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> 
+
+                </div>
+
+                <div class="carta-bordo carta-mediana">
+                    
+                    <div class="lineas-viajeras-animadas">
+                        <span class="linea-v linea-arriba"></span>
+                        <span class="linea-v linea-derecha"></span>
+                        <span class="linea-v linea-abajo"></span>
+                        <span class="linea-v linea-izquierda"></span>
+                    </div>
+
+                    <h2 class="titulo-admin-sorteo">
+                        REGISTRO DE SORTEOS 
+                        <i class="fa-solid fa-lock" id="btn-lock-planilla" style="cursor:pointer; font-size: 24px; color: #FFF; text-shadow: 0 0 10px #FFD700; margin-left: 15px;" title="Desbloquear Planilla"></i>
+                    </h2>
+                    
+                    <form id="form-registro-sorteo" class="formulario-sorteo-admin">
+                        <div class="input-admin-group">
+                            <label for="admin-nombre">CAJERO / ADMIN:</label>
+                            <input type="text" id="admin-nombre" placeholder="Ej: BATMAN" required autocomplete="off">
+                        </div>
+                        <div class="input-admin-group">
+                            <label for="user-nombre">USUARIO DEL JUGADOR:</label>
+                            <input type="text" id="user-nombre" placeholder="Ej: carlos88" required autocomplete="off">
+                        </div>
+                        <div class="input-admin-group">
+                            <label for="numero-sorteo">NÚMERO DE SORTEO:</label>
+                            <input type="number" id="numero-sorteo" placeholder="Ej: 145" required autocomplete="off">
+                        </div>
+                        
+                        <button type="submit" class="btn-registro-admin">REGISTRAR NÚMERO <i class="fa-solid fa-check-circle"></i></button>
+                    </form>
+
+                    <div class="panel-control-sorteo" id="panel-planilla" style="display: none;">
+                        <h3 class="titulo-tabla">PLANILLA PRIVADA</h3>
+                        <div class="tabla-contenedor">
+                            <table class="tabla-sorteos" id="tabla-registros">
+                                <thead>
+                                    <tr>
+                                        <th>Cajero</th>
+                                        <th>Usuario</th>
+                                        <th>Número</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpo-tabla-registros">
+                                </tbody>
+                            </table>
+                        </div>
+                        <button id="btn-descargar-excel" class="btn-excel-admin">DESCARGAR PLANILLA EXCEL <i class="fa-solid fa-file-excel"></i></button>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div style="height: 150px;"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajeros - Casino Realeza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&family=Montserrat:wght@400;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <canvas id="royal-casino-visuals"></canvas>
+    <div id="bg-sparkles" class="bg-sparkles-container"></div>
+
+    <div class="menu-hamburguesa menu-hamburguesa-right" id="btn-menu">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu-lateral" id="menu-lateral">
+        <div class="cerrar-menu" id="btn-cerrar">&times;</div>
+        <ul>
+            <li><a href="index.html">INICIO</a></li>
+            <li><a href="contacto.html">CONTACTO</a></li>
+            <li><a href="jackpots.html">JACKPOTS</a></li>
+            <li><a href="cajeros.html">CAJEROS</a></li>
+            <li><a href="sorteos.html">SORTEOS</a></li>
+            <li><a href="grupos.html">GRUPOS</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        
+        <header class="top-banner-section">
+            <div class="banner-wrapper">
+                <video autoplay loop muted playsinline class="elite-banner">
+                    <source src="banner.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="electric-line-divider-pro"></div>
+        </header>
+
+        <nav class="quick-access-menu-pro" id="botonera-scroll">
+            <button class="neon-moving-btn btn-circular-inicio" onclick="window.location.href='index.html'"><span>INICIO</span></button>
+            <button class="neon-moving-btn btn-color-rosa" onclick="window.location.href='contacto.html'"><span>CONTACTO</span></button>
+            <button class="neon-moving-btn btn-color-verde" onclick="window.location.href='jackpots.html'"><span>JACKPOTS</span></button>
+            <button class="neon-moving-btn btn-color-rojo" onclick="window.location.href='cajeros.html'"><span>CAJEROS</span></button>
+            <button class="neon-moving-btn btn-color-turquesa" onclick="window.location.href='sorteos.html'"><span>SORTEOS</span></button>
+            <button class="neon-moving-btn btn-color-naranja" onclick="window.location.href='grupos.html'"><span>GRUPOS</span></button>
+        </nav>
+
+        <section class="espacio-contenido">
+            
+            <div class="elite-title-container">
+                <div class="falling-sparkles-container">
+                    <div class="f-sparkle fs-1"></div><div class="f-sparkle fs-2"></div>
+                    <div class="f-sparkle fs-3"></div><div class="f-sparkle fs-4"></div>
+                </div>
+                
+                <h1 class="royal-jackpot-title" data-text="CAJEROS">CAJEROS</h1>
+                
+                <div class="dynamic-subtitle-fullwidth subtitle-dorado">
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    <span class="sub-neon"></span><span class="sub-neon"></span>
+                    
+                    <div class="dynamic-subtitle-track">
+                        <span class="dyn-sub">ESTAMOS LAS 24HS PARA VOS</span>
+                        <span class="dyn-sub">CAJAS DORADAS-CAJAS 1X1</span>
+                        <span class="dyn-sub">LAS MEJORES PLATAFORMAS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cajeros-main-container">
+                
+                <div class="cajeros-info-grid">
+                    
+                    <div class="premium-info-card card-gold">
+                        <div class="animated-border-box"></div>
+                        <div class="premium-card-content">
+                            <div class="cajeros-card-header">
+                                <lottie-player src="ofrecemos.json" background="transparent" speed="1" style="width: 300px; height: 180px;" loop autoplay></lottie-player>
+                                <h2 class="cajeros-title ofrecemos-title">OFRECEMOS</h2>
+                            </div>
+                            <ul class="cajeros-list list-gold">
+                                <li><i class="fa-solid fa-check-double"></i> <span>CAJAS INTERCALADAS 1X1</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>50% COMISION EN EL ACTO</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>RESPALDO Y RECUPERO 100%</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>CRONOGRAMA BANCA LIBRE</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>CAJAS DORADAS (TODOS LOS MIERCOLES COMISIONAS TODAS TUS CAJAS AUN QUE TENGAS RECUPERO)</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>MATERIAL GRAFICO GRATIS</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>GRUPOS DE AYUDA</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>GRUPOS DE PROMOCION</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>ATENCION EN CAJA 24HS</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>ACOMPAÑAMIENTO 24/7</span></li>
+                                <li><i class="fa-solid fa-check-double"></i> <span>GANAMOS Y MULTIPANEL</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="premium-info-card card-red">
+                        <div class="animated-border-box"></div>
+                        <div class="premium-card-content">
+                            <div class="cajeros-card-header">
+                                <lottie-player src="requisitos.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay></lottie-player>
+                                <h2 class="cajeros-title requisitos-title">REQUISITOS</h2>
+                            </div>
+                            <ul class="cajeros-list list-red">
+                                <li><i class="fa-solid fa-star"></i> <span>FOTO DEL DNI AMBOS LADOS</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>LINK DE TUS REDES SOCIALES</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>FOTO TUYA CON UNA HOJA EN MANO Y ESCRITO RED JACKPOT QUEENS.</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>CELULAR Y CONEXION A INTERNET</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>GANAS DE GANAR MUCHA PLATA</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>SER MAYOR DE 18 AÑOS</span></li>
+                                <li><i class="fa-solid fa-star"></i> <span>NO TENER DEUDA EN REDES ANTERIORES</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cajeros-form-wrapper">
+                    
+                    <div class="cajeros-character-area">
+                        <lottie-player src="personaje-cajeros.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
+                    </div>
+
+                    <div class="cajeros-form-area">
+                        <h2 class="form-title">FORMULARIO DE INGRESO</h2>
+                        <form id="formulario-cajeros" class="form-neon">
+                            <div class="input-group">
+                                <label>NOMBRE Y APELLIDO</label>
+                                <input type="text" id="c-nombre" required placeholder="Ingresá tu nombre completo" autocomplete="off">
+                            </div>
+
+                            <div class="input-group">
+                                <label>NÚMERO DE DNI</label>
+                                <input type="number" id="c-dni" required placeholder="Ej: 40123456" autocomplete="off">
+                            </div>
+
+                            <div class="input-group">
+                                <label>LINK DE TUS REDES SOCIALES</label>
+                                <input type="text" id="c-redes" required placeholder="Ej: Instagram, Facebook, TikTok..." autocomplete="off">
+                            </div>
+
+                            <div class="input-group">
+                                <label>¿TENÉS EXPERIENCIA?</label>
+                                <select id="c-exp" required>
+                                    <option value="" disabled selected>Seleccioná una opción</option>
+                                    <option value="SI EN RED...">SÍ, EN RED...</option>
+                                    <option value="NO, PRIMERA VEZ">NO, PRIMERA VEZ</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group" id="grupo-motivo">
+                                <label>MOTIVO POR EL QUE CAMBIAS DE RED</label>
+                                <textarea id="c-motivo" rows="2" placeholder="Si es tu primera vez, dejar vacío"></textarea>
+                            </div>
+
+                            <div class="input-group file-upload-group">
+                                <label>ADJUNTAR 3 FOTOS <span style="color:#aaa; font-size:12px;">(DNI Frente, DNI Dorso, Selfie c/Cartel)</span></label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="c-fotos" accept="image/*" multiple required>
+                                    <label for="c-fotos" class="file-upload-btn"><i class="fa-solid fa-cloud-arrow-up"></i> CARGAR FOTOS</label>
+                                    <span id="file-name-display">Ningún archivo seleccionado</span>
+                                </div>
+                                <small style="color:#00E5FF; font-size:13px; margin-top: 5px; font-style: italic;">*Nota: Por seguridad, las fotos se adjuntarán a tu mensaje de WhatsApp al presionar enviar.</small>
+                            </div>
+
+                            <div class="btn-whatsapp-wrapper">
+                                <lottie-player src="corona.json" background="transparent" speed="1" class="corona-formulario" loop autoplay></lottie-player>
+                                
+                                <button type="submit" class="btn-whatsapp-animado" style="margin-top: 0; width: 100%;">
+                                    <span><i class="fa-brands fa-whatsapp"></i> ¡UNITE A LA MEJOR RED!</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <div style="height: 100px;"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
