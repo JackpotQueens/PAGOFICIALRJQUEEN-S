@@ -11,6 +11,67 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- ESTILOS ESPECÍFICOS PARA EL NUEVO BOTÓN DORADO -->
+    <style>
+        .btn-whatsapp-dorado {
+            position: relative;
+            background: #25D366;
+            border: none;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .btn-whatsapp-dorado span {
+            color: #FFF;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+        /* Contorno dorado en movimiento */
+        .btn-whatsapp-dorado::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 300%;
+            /* Degradado que crea el rayo de luz dorada */
+            background: conic-gradient(transparent, transparent, transparent, #FFD700, #FFF, #FFD700, transparent);
+            top: -100%;
+            left: -25%;
+            z-index: 0;
+            animation: rotateGoldBorder 2s linear infinite;
+        }
+        /* Fondo verde que deja ver solo el borde (inset: 2px es el grosor del borde) */
+        .btn-whatsapp-dorado::after {
+            content: '';
+            position: absolute;
+            inset: 2px; 
+            background: #25D366;
+            border-radius: 6px;
+            z-index: 1;
+            transition: background 0.3s ease;
+        }
+        .btn-whatsapp-dorado:hover::after {
+            background: #1ebe57; /* Verde más oscuro al pasar el mouse */
+        }
+        @keyframes rotateGoldBorder {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <canvas id="royal-casino-visuals"></canvas>
@@ -78,6 +139,7 @@
                 
                 <div class="cajeros-info-grid">
                     
+                    <!-- Tarjeta: OFRECEMOS -->
                     <div class="premium-info-card card-gold">
                         <div class="animated-border-box"></div>
                         <div class="premium-card-content">
@@ -101,84 +163,48 @@
                         </div>
                     </div>
 
+                    <!-- Tarjeta: REQUISITOS (Incluye Botón Dorado y Buzón) -->
                     <div class="premium-info-card card-red">
                         <div class="animated-border-box"></div>
-                        <div class="premium-card-content">
-                            <div class="cajeros-card-header">
-                                <lottie-player src="requisitos.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay></lottie-player>
-                                <h2 class="cajeros-title requisitos-title">REQUISITOS</h2>
+                        <div class="premium-card-content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+                            
+                            <div>
+                                <div class="cajeros-card-header">
+                                    <lottie-player src="requisitos.json" background="transparent" speed="1" style="width: 80px; height: 80px;" loop autoplay></lottie-player>
+                                    <h2 class="cajeros-title requisitos-title">REQUISITOS</h2>
+                                </div>
+                                <ul class="cajeros-list list-red">
+                                    <li><i class="fa-solid fa-star"></i> <span>FOTO DEL DNI AMBOS LADOS</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>LINK DE TUS REDES SOCIALES</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>FOTO TUYA CON UNA HOJA EN MANO Y ESCRITO RED JACKPOT QUEENS.</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>CELULAR Y CONEXION A INTERNET</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>GANAS DE GANAR MUCHA PLATA</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>SER MAYOR DE 18 AÑOS</span></li>
+                                    <li><i class="fa-solid fa-star"></i> <span>NO TENER DEUDA EN REDES ANTERIORES</span></li>
+                                </ul>
                             </div>
-                            <ul class="cajeros-list list-red">
-                                <li><i class="fa-solid fa-star"></i> <span>FOTO DEL DNI AMBOS LADOS</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>LINK DE TUS REDES SOCIALES</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>FOTO TUYA CON UNA HOJA EN MANO Y ESCRITO RED JACKPOT QUEENS.</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>CELULAR Y CONEXION A INTERNET</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>GANAS DE GANAR MUCHA PLATA</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>SER MAYOR DE 18 AÑOS</span></li>
-                                <li><i class="fa-solid fa-star"></i> <span>NO TENER DEUDA EN REDES ANTERIORES</span></li>
-                            </ul>
+
+                            <!-- CONTENEDOR DEL BOTÓN Y EL BUZÓN -->
+                            <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 35px; background: rgba(0, 0, 0, 0.5); padding: 25px 15px; border-radius: 12px; border: 1px solid rgba(255, 0, 0, 0.3); box-shadow: inset 0 0 15px rgba(0,0,0,0.8);">
+                                
+                                <!-- Botón WhatsApp con Corona y Borde Dorado -->
+                                <div class="btn-whatsapp-wrapper" style="flex: 1; min-width: 220px; position: relative; margin: 0;">
+                                    <lottie-player src="corona.json" background="transparent" speed="1" class="corona-formulario" loop autoplay></lottie-player>
+                                    
+                                    <a href="https://wa.me/5491126085413?text=hola%20chicas%20quiero%20info%20para%20cajeros%20por%20favor%20%F0%9F%92%95%F0%9F%8D%80" target="_blank" class="btn-whatsapp-dorado" style="width: 100%; margin: 0;">
+                                        <span><i class="fa-brands fa-whatsapp"></i> UNITE AHORA</span>
+                                    </a>
+                                </div>
+
+                                <!-- Personaje / Buzón -->
+                                <div style="display: flex; justify-content: center; align-items: center;">
+                                    <lottie-player src="personaje-cajeros.json" background="transparent" speed="1" style="width: 130px; height: 130px;" loop autoplay></lottie-player>
+                                </div>
+
+                            </div>
+                            
                         </div>
                     </div>
-                </div>
-
-                <div class="cajeros-form-wrapper">
-                    
-                    <div class="cajeros-character-area">
-                        <lottie-player src="personaje-cajeros.json" background="transparent" speed="1" style="width: 400px; height: 400px;" loop autoplay></lottie-player>
-                    </div>
-
-                    <div class="cajeros-form-area">
-                        <h2 class="form-title">FORMULARIO DE INGRESO</h2>
-                        <form id="formulario-cajeros" class="form-neon">
-                            <div class="input-group">
-                                <label>NOMBRE Y APELLIDO</label>
-                                <input type="text" id="c-nombre" required placeholder="Ingresá tu nombre completo" autocomplete="off">
-                            </div>
-
-                            <div class="input-group">
-                                <label>NÚMERO DE DNI</label>
-                                <input type="number" id="c-dni" required placeholder="Ej: 40123456" autocomplete="off">
-                            </div>
-
-                            <div class="input-group">
-                                <label>LINK DE TUS REDES SOCIALES</label>
-                                <input type="text" id="c-redes" required placeholder="Ej: Instagram, Facebook, TikTok..." autocomplete="off">
-                            </div>
-
-                            <div class="input-group">
-                                <label>¿TENÉS EXPERIENCIA?</label>
-                                <select id="c-exp" required>
-                                    <option value="" disabled selected>Seleccioná una opción</option>
-                                    <option value="SI EN RED...">SÍ, EN RED...</option>
-                                    <option value="NO, PRIMERA VEZ">NO, PRIMERA VEZ</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group" id="grupo-motivo">
-                                <label>MOTIVO POR EL QUE CAMBIAS DE RED</label>
-                                <textarea id="c-motivo" rows="2" placeholder="Si es tu primera vez, dejar vacío"></textarea>
-                            </div>
-
-                            <div class="input-group file-upload-group">
-                                <label>ADJUNTAR 3 FOTOS <span style="color:#aaa; font-size:12px;">(DNI Frente, DNI Dorso, Selfie c/Cartel)</span></label>
-                                <div class="file-upload-wrapper">
-                                    <input type="file" id="c-fotos" accept="image/*" multiple required>
-                                    <label for="c-fotos" class="file-upload-btn"><i class="fa-solid fa-cloud-arrow-up"></i> CARGAR FOTOS</label>
-                                    <span id="file-name-display">Ningún archivo seleccionado</span>
-                                </div>
-                                <small style="color:#00E5FF; font-size:13px; margin-top: 5px; font-style: italic;">*Nota: Por seguridad, las fotos se adjuntarán a tu mensaje de WhatsApp al presionar enviar.</small>
-                            </div>
-
-                            <div class="btn-whatsapp-wrapper">
-                                <lottie-player src="corona.json" background="transparent" speed="1" class="corona-formulario" loop autoplay></lottie-player>
-                                
-                                <button type="submit" class="btn-whatsapp-animado" style="margin-top: 0; width: 100%;">
-                                    <span><i class="fa-brands fa-whatsapp"></i> ¡UNITE A LA MEJOR RED!</span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
                 </div>
 
             </div>
