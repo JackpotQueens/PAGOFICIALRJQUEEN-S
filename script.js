@@ -759,3 +759,21 @@ if(formRegistro && cuerpoTabla) {
         });
     }
 }
+/* ========================================================================= */
+/* LÓGICA DE BOLITAS CAMBIANTES (SORTEOS)                                    */
+/* ========================================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    // Busca todas las bolitas que tengan la clase 'num-cambiante'
+    const bolitasSorteo = document.querySelectorAll('.num-cambiante');
+    
+    if (bolitasSorteo.length > 0) {
+        // Ejecuta el cambio cada 2 segundos (2000 milisegundos)
+        setInterval(() => {
+            bolitasSorteo.forEach(bola => {
+                // Genera un número aleatorio entre 1 y 20000
+                const numeroAleatorio = Math.floor(Math.random() * 20000) + 1;
+                bola.textContent = numeroAleatorio;
+            });
+        }, 2000);
+    }
+});
