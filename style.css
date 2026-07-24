@@ -716,6 +716,13 @@ img.personaje-flotante {
     color: #ffffff;
 }
 
+/* Ajuste móvil para el bolillero */
+@media (max-width: 768px) {
+    .bolillero-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
 /* ========================================================================= */
 /* MEDIA QUERIES (CORRECCIONES MÓVILES EXHAUSTIVAS Y RESPONSIVAS)            */
 /* ========================================================================= */
@@ -767,4 +774,275 @@ img.personaje-flotante {
   .ruleta-outer-ring, .ruleta-outer-ring::before { width: 290px; height: 290px; } .ruleta-idle-wrapper { width: 265px; height: 265px; } #ruleta-canvas { width: 265px !important; height: 265px !important; }
   .cartas-outer-wrapper { width: 265px; }
   .btn-circular-inicio { width: 38px; height: 38px; }
+}
+/* ========================================================================= */
+/* NUEVA SECCIÓN: DISEÑO DE SORTEOS PREMIUM (BOLILLERO 3D, BOTONES Y PREMIOS)*/
+/* ========================================================================= */
+
+.titulo-horizontal-premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+/* Corona ajustada al tamaño de la C */
+.corona-inline { 
+    width: 95px; 
+    height: 95px; 
+    margin-right: -10px; 
+    margin-bottom: -10px;
+    filter: drop-shadow(0 0 15px rgba(255,215,0,0.9)); 
+    z-index: 5;
+}
+
+/* Título con el efecto original restaurado y muy brillante */
+.titulo-texto-dorado-brillante {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(35px, 6vw, 70px);
+    font-weight: 900;
+    color: #FFF;
+    text-shadow: 0 0 10px #FFD700, 0 0 20px #FFB300, 0 0 40px #FF8C00, 2px 2px 0px #8B4500;
+    text-transform: uppercase;
+    margin: 0;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.premio-horizontal-premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+    flex-wrap: nowrap;
+}
+
+/* Texto de premio más chico para que no se corte */
+.texto-2millones-ajustado {
+    font-size: clamp(22px, 4vw, 42px) !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+.fuego-inline { width: 75px; height: 75px; filter: drop-shadow(0 0 15px #FF4500); flex-shrink: 0; }
+
+/* LAYOUT DE 3 COLUMNAS CENTRAL */
+.centro-dinamico-3-columnas {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* BOTÓN SUERTE (IZQUIERDA) */
+.zona-suerte-izq { flex: 0 0 auto; display: flex; justify-content: center; align-items: center; }
+.btn-suerte-redondo-gigante {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #00FF33, #008000);
+    border: 5px solid #FFD700;
+    color: #FFF;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: uppercase;
+    box-shadow: 0 0 25px #00FF33, inset 0 0 20px rgba(255,255,255,0.6);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.1;
+    animation: latidoSuerteGigante 1.5s infinite alternate ease-in-out;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+    transition: transform 0.3s;
+}
+.trebol-gigante { font-size: 40px; margin-top: 5px; filter: drop-shadow(0 0 10px #000); }
+.btn-suerte-redondo-gigante:hover { transform: scale(1.1); filter: brightness(1.2); }
+@keyframes latidoSuerteGigante {
+    0% { box-shadow: 0 0 15px #00FF33, 0 0 10px #FFD700; transform: scale(1); }
+    100% { box-shadow: 0 0 40px #00FF33, 0 0 25px #FFD700, inset 0 0 15px #FFF; transform: scale(1.05); }
+}
+
+/* BOLILLERO GIGANTE (CENTRO) */
+.zona-bolillero-centro { flex: 1; display: flex; justify-content: center; align-items: center; }
+.bolillero-animado-3d-oro {
+    position: relative;
+    width: 260px;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.esfera-bolillero-oro {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid #FFD700;
+    background: radial-gradient(circle at 35% 35%, rgba(255,215,0,0.3), rgba(0,0,0,0.9));
+    box-shadow: inset 0 0 50px rgba(255,215,0,0.8), 0 0 35px rgba(255,215,0,0.5);
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.rejilla-oro { position: absolute; border: 3px solid rgba(255,215,0,0.9); border-radius: 50%; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; box-shadow: inset 0 0 10px rgba(255,215,0,0.5); }
+.r1 { transform: rotateY(36deg); }
+.r2 { transform: rotateY(72deg); }
+.r3 { transform: rotateY(108deg); }
+.r4 { transform: rotateY(144deg); }
+.r5 { transform: rotateX(90deg); border-width: 5px; border-color: #FFDF00; }
+
+.base-bolillero-oro-lujo {
+    width: 180px;
+    height: 45px;
+    background: linear-gradient(to right, #B8860B, #FFDF00, #B8860B);
+    border-radius: 10px 10px 30px 30px;
+    margin-top: -20px;
+    z-index: 1;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+    border-bottom: 5px solid #553a00;
+}
+
+/* Bolitas súper brillantes y variadas */
+.bola-bolillero {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    color: #FFF;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.8), inset 5px 5px 10px rgba(255,255,255,0.6), 0 5px 10px rgba(0,0,0,0.8);
+    animation: rebotarBolaCaos 3s infinite ease-in-out alternate;
+    z-index: 5;
+}
+
+/* Colores Intensos */
+.b-roja { background: radial-gradient(circle at 30% 30%, #FF3333, #8B0000); left: 10%; bottom: 10%; animation-duration: 2.1s; }
+.b-verde { background: radial-gradient(circle at 30% 30%, #33FF33, #006400); left: 50%; bottom: 5%; animation-duration: 2.4s; }
+.b-azul { background: radial-gradient(circle at 30% 30%, #33CCFF, #00008B); left: 70%; bottom: 15%; animation-duration: 2.8s; }
+.b-amarilla { background: radial-gradient(circle at 30% 30%, #FFFF33, #B8860B); color: #000; left: 30%; bottom: 25%; animation-duration: 2.3s; text-shadow: none;}
+.b-rosa { background: radial-gradient(circle at 30% 30%, #FF33FF, #8B008B); left: 80%; bottom: 30%; animation-duration: 2.6s; }
+.b-naranja { background: radial-gradient(circle at 30% 30%, #FF9933, #8B4500); left: 40%; bottom: 45%; animation-duration: 2.2s; }
+.b-violeta { background: radial-gradient(circle at 30% 30%, #9933FF, #4B0082); left: 20%; bottom: 50%; animation-duration: 2.7s; }
+.b-cyan { background: radial-gradient(circle at 30% 30%, #33FFFF, #008B8B); color: #000; left: 60%; bottom: 55%; animation-duration: 2.5s; text-shadow: none;}
+.b-blanca { background: radial-gradient(circle at 30% 30%, #FFFFFF, #999999); color: #000; left: 45%; bottom: 65%; animation-duration: 2.9s; text-shadow: none;}
+
+@keyframes rebotarBolaCaos {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(40px, -60px) rotate(120deg); }
+    50% { transform: translate(-35px, -110px) rotate(240deg); }
+    75% { transform: translate(35px, -170px) rotate(360deg); }
+    100% { transform: translate(-20px, -40px) rotate(480deg); }
+}
+
+/* DERECHA (MISTERIO Y PREMIOS) */
+.zona-premios-der { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+
+/* Pelota de Misterio Súper Brillante Flotando */
+.pelota-misterio-flotante {
+    position: relative;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFF2A8, #FFD700, #B8860B);
+    border: 4px solid #FFF;
+    box-shadow: 0 0 30px #FFD700, inset 0 0 20px rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flotarMisterioIntenso 3s infinite ease-in-out;
+    z-index: 10;
+}
+.pelota-misterio-flotante span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    color: #FFF;
+    text-shadow: 1px 2px 5px rgba(0,0,0,0.7), 0 0 15px #FFF;
+}
+/* Brillitos mágicos alrededor de la pelota */
+.brillitos-misterio::before, .brillitos-misterio::after {
+    content: '✨'; position: absolute; font-size: 20px; color: #FFD700; animation: destelloMisterio 1.5s infinite alternate;
+}
+.brillitos-misterio::before { top: -10px; right: -10px; }
+.brillitos-misterio::after { bottom: -5px; left: -15px; animation-delay: 0.7s; }
+
+@keyframes flotarMisterioIntenso {
+    0% { transform: translateY(0); filter: brightness(1) drop-shadow(0 0 15px #FFD700); }
+    50% { transform: translateY(-15px); filter: brightness(1.3) drop-shadow(0 0 35px #FFD700); }
+    100% { transform: translateY(0); filter: brightness(1) drop-shadow(0 0 15px #FFD700); }
+}
+@keyframes destelloMisterio { 0% { opacity: 0; transform: scale(0.5); } 100% { opacity: 1; transform: scale(1.5); } }
+
+/* Contenedor del Carrusel Vertical de Premios */
+.carrusel-premios-contenedor {
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+}
+.carrusel-premios-contenedor::before,
+.carrusel-premios-contenedor::after {
+    content: ''; position: absolute; left: 0; width: 100%; height: 35px; z-index: 5; pointer-events: none;
+}
+.carrusel-premios-contenedor::before { top: 0; background: linear-gradient(to bottom, rgba(40, 0, 10, 1), transparent); }
+.carrusel-premios-contenedor::after { bottom: 0; background: linear-gradient(to top, rgba(40, 0, 10, 1), transparent); }
+
+.pista-premios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 5px;
+    animation: scrollVerticalAbajo 14s linear infinite;
+}
+
+@keyframes scrollVerticalAbajo {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* Rectángulos de premios estilo Neón Casino */
+.premio-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #050005; /* Fondo oscuro */
+    border-radius: 35px; /* Bordes bien redondeados formando un rectángulo/píldora */
+    border: 4px solid;
+    padding: 8px 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.9), inset 0 0 15px currentColor;
+    color: #FFF;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9), 0 0 5px currentColor;
+}
+.p-sub { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
+.p-monto { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 900; line-height: 1.1; }
+
+/* Colores Neón para los Rectángulos */
+.pill-oro { color: #FFD700; border-color: #FFD700; box-shadow: 0 0 15px #FFD700, inset 0 0 15px #FFD700; }
+.pill-verde { color: #00FF33; border-color: #00FF33; box-shadow: 0 0 15px #00FF33, inset 0 0 15px #00FF33; }
+.pill-rosa { color: #FF00FF; border-color: #FF00FF; box-shadow: 0 0 15px #FF00FF, inset 0 0 15px #FF00FF; }
+.pill-azul { color: #00E5FF; border-color: #00E5FF; box-shadow: 0 0 15px #00E5FF, inset 0 0 15px #00E5FF; }
+.pill-rojo { color: #FF0000; border-color: #FF0000; box-shadow: 0 0 15px #FF0000, inset 0 0 15px #FF0000; }
+.pill-naranja { color: #FF8C00; border-color: #FF8C00; box-shadow: 0 0 15px #FF8C00, inset 0 0 15px #FF8C00; }
+
+@media (max-width: 900px) {
+    .centro-dinamico-3-columnas { flex-direction: column; gap: 40px; }
+    .titulo-horizontal-premium { flex-wrap: wrap; }
+    .premio-horizontal-premium { flex-wrap: wrap; gap: 5px; }
 }
