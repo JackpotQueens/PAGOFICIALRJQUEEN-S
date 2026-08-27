@@ -390,9 +390,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ========================================================================= */
 if (document.getElementById('tablero-cartas')) {
     const CODIGOS_CARTAS = [
-        "10293", "29485", "38574", "47692", "58710", "69821", "71932", "82043", "93154", "14265",
-        "25376", "36487", "47598", "58609", "69710", "70821", "81932", "92043", "13154", "24265",
-        "35376", "46487", "57598", "68609", "79710", "80821", "91932", "12043", "23154", "34265"
+        "95142", "38271", "64958", "17384", "82093", "45617", "71528", "29463", "53890", "86154",
+        "14725", "68390", "25916", "93748", "41582", "70639", "52814", "89027", "36491", "18536",
+        "42970", "75183", "90346", "26859", "59217", "84602", "31795", "67048", "13582", "50469"
     ];
     const LISTA_MINI = ["$300", "$500", "$750"]; const LISTA_MINOR = ["$400", "$650", "$700"]; const LISTA_MAJOR = ["$800", "5% EXTRA", "10% EXTRA"]; const LISTA_GRAND = ["25% EXTRA", "20% EXTRA"];
 
@@ -464,9 +464,9 @@ if (document.getElementById('tablero-cartas')) {
 /* ========================================================================= */
 if (document.getElementById('ruleta-canvas')) {
     const CODIGOS_RULETA = [
-        "50192", "61203", "72314", "83425", "94536", "15647", "26758", "37869", "48970", "59081",
-        "60192", "71203", "82314", "93425", "14536", "25647", "36758", "47869", "58970", "69081",
-        "70192", "81203", "92314", "13425", "24536", "35647", "46758", "57869", "68970", "79081"
+        "18492", "47583", "92847", "57382", "29475", "83921", "46295", "10483", "75928", "38291",
+        "64729", "82104", "59382", "37485", "91827", "26483", "73910", "48265", "19573", "58294",
+        "27384", "69105", "84729", "15382", "40938", "72849", "35192", "96473", "28591", "51740"
     ];
     const PREMIOS_RULETA = ["$400 EXTRA","$350 EXTRA","$300 EXTRA","$500 EXTRA","5% EXTRA","10% EXTRA","15% EXTRA","20% EXTRA","25% EXTRA","$1.000 EXTRA"];
     const COLORES_RULETA = ["#C0392B","#8E44AD","#2980B9","#27AE60","#E67E22","#16A085","#D35400","#2C3E50","#8E44AD","#C0392B"];
@@ -519,9 +519,9 @@ if (document.getElementById('ruleta-canvas')) {
 /* ========================================================================= */
 if (document.getElementById('codigo-super')) {
     const CODIGOS_SUPER = [
-        "90182", "81293", "72304", "63415", "54526", "45637", "36748", "27859", "18960", "29071",
-        "30182", "41293", "52304", "63415", "74526", "85637", "96748", "17859", "28960", "39071",
-        "40182", "51293", "62304", "73415", "84526", "95637", "16748", "27859", "38960", "49071"
+        "49201", "73819", "51642", "82950", "15473", "60824", "94135", "37268", "28591", "61904",
+        "53726", "98140", "20463", "85917", "16285", "47539", "79052", "31486", "62895", "95318",
+        "40627", "83159", "27594", "59803", "14036", "76248", "38571", "91704", "52936", "18460"
     ];
     const PREMIOS_SUPER = ["$700", "$800", "10%", "5%", "15%", "$400", "$500", "$600", "20%"];
 
@@ -759,21 +759,152 @@ if(formRegistro && cuerpoTabla) {
         });
     }
 }
+
 /* ========================================================================= */
-/* LÓGICA DE BOLITAS CAMBIANTES (SORTEOS)                                    */
+/* 8. LÓGICA DEL BOLILLERO PREMIUM 3D (MATTER.JS + GSAP)                     */
 /* ========================================================================= */
-document.addEventListener('DOMContentLoaded', () => {
-    // Busca todas las bolitas que tengan la clase 'num-cambiante'
-    const bolitasSorteo = document.querySelectorAll('.num-cambiante');
+if (document.getElementById('bolillero-premium') && typeof Matter !== 'undefined') {
+    const Engine = Matter.Engine,
+          Render = Matter.Render,
+          Runner = Matter.Runner,
+          Bodies = Matter.Bodies,
+          Composite = Matter.Composite,
+          Body = Matter.Body,
+          Events = Matter.Events;
+
+    // Crear motor con gravedad ajustada para efecto casino (bolas con peso pero flotantes)
+    const engine = Engine.create();
+    engine.world.gravity.y = 1.2;
+
+    const canvasBolillero = document.getElementById('bolillero-physics-canvas');
     
-    if (bolitasSorteo.length > 0) {
-        // Ejecuta el cambio cada 2 segundos (2000 milisegundos)
-        setInterval(() => {
-            bolitasSorteo.forEach(bola => {
-                // Genera un número aleatorio entre 1 y 20000
-                const numeroAleatorio = Math.floor(Math.random() * 20000) + 1;
-                bola.textContent = numeroAleatorio;
-            });
-        }, 2000);
+    // Contrucción de la Jaula (Cilindro hueco a partir de múltiples segmentos pequeños)
+    const partesJaula = [];
+    const numSegmentos = 36;
+    const radioJaula = 150;
+    const centroX = 160;
+    const centroY = 160;
+
+    for (let i = 0; i < numSegmentos; i++) {
+        const angulo = (Math.PI * 2 / numSegmentos) * i;
+        const x = centroX + Math.cos(angulo) * radioJaula;
+        const y = centroY + Math.sin(angulo) * radioJaula;
+        const segmento = Bodies.rectangle(x, y, 32, 10, {
+            angle: angulo,
+            friction: 0.1,
+            restitution: 0.4,
+            render: { visible: false }
+        });
+        partesJaula.push(segmento);
     }
-});
+    
+    // Agregar unas barras cruzadas internas (mixer) para empujar y mover las bolas
+    const mixer = Bodies.rectangle(centroX, centroY, 280, 15, { 
+        friction: 0.1, restitution: 0.5, render: { visible: false } 
+    });
+    partesJaula.push(mixer);
+
+    // Jaula como un solo cuerpo cinemático para poder rotarlo manualmente
+    const jaulaCompuesta = Body.create({ parts: partesJaula, isKinematic: true });
+    Composite.add(engine.world, jaulaCompuesta);
+
+    // Crear Bolas
+    const domBolas = [];
+    const coloresBolas = ['bp-rojo', 'bp-azul', 'bp-verde', 'bp-amarillo', 'bp-naranja', 'bp-violeta', 'bp-turquesa', 'bp-rosa'];
+    const contenedorFisico = document.getElementById('bolillero-premium');
+    const overlayCristal = document.querySelector('.bolillero-glass-overlay'); 
+
+    for (let i = 0; i < 35; i++) {
+        const radioBola = 18; // 36px diámetro como definimos en CSS
+        const posX = centroX + (Math.random() - 0.5) * 100;
+        const posY = centroY + (Math.random() - 0.5) * 100;
+        
+        const cuerpoBola = Bodies.circle(posX, posY, radioBola, {
+            restitution: 0.85, // Muy rebotadoras
+            friction: 0.005,
+            density: 0.05
+        });
+        Composite.add(engine.world, cuerpoBola);
+
+        const elDOM = document.createElement('div');
+        elDOM.className = 'bola-premium-fisica ' + coloresBolas[Math.floor(Math.random() * coloresBolas.length)];
+        elDOM.setAttribute('data-numero', Math.floor(Math.random() * 9999) + 1);
+        
+        // Posicionamiento base
+        elDOM.style.top = '0';
+        elDOM.style.left = '0';
+        
+        // Insertar detrás de la capa de brillo de cristal para mantener la profundidad 3D
+        contenedorFisico.insertBefore(elDOM, overlayCristal);
+
+        domBolas.push({ body: cuerpoBola, el: elDOM });
+    }
+
+    // Variable reactiva para GSAP
+    const controlGiro = { velocidad: 0.02 };
+
+    // Bucle antes de calcular físicas: Impartir velocidad a la jaula
+    Events.on(engine, 'beforeUpdate', function() {
+        Body.setAngularVelocity(jaulaCompuesta, controlGiro.velocidad);
+    });
+
+    const domJaulaFrontal = document.getElementById('bolillero-cage-spin');
+    const domManivela = document.getElementById('manivela-giro');
+
+    // Bucle después de calcular físicas: Sincronizar el DOM con las posiciones matemáticas
+    Events.on(engine, 'afterUpdate', function() {
+        domBolas.forEach(b => {
+            // Ajustar el offset (+30) ya que el canvas de físicas mide 320 y el contenedor mide 380 ((380-320)/2 = 30)
+            const tx = b.body.position.x - 18 + 30; // 18 es el radio (mitad de 36px)
+            const ty = b.body.position.y - 18 + 30;
+            b.el.style.transform = `translate(${tx}px, ${ty}px) rotate(${b.body.angle}rad)`;
+        });
+
+        // Sincronizar UI Visual del oro y la manivela
+        if (domJaulaFrontal) domJaulaFrontal.style.transform = `rotate(${jaulaCompuesta.angle}rad)`;
+        if (domManivela) domManivela.style.transform = `rotate(${jaulaCompuesta.angle}rad)`;
+    });
+
+    Runner.run(Runner.create(), engine);
+
+    // Interacción Botón ¡SUERTE!
+    const btnSuerte = document.querySelector('.btn-suerte-redondo-gigante');
+    let girandoRapido = false;
+
+    if (btnSuerte && typeof gsap !== 'undefined') {
+        btnSuerte.addEventListener('click', () => {
+            if (girandoRapido) return;
+            girandoRapido = true;
+            
+            playSound(sfxRuleta);
+
+            // Cambiar todos los números intermitentemente mientras gira
+            domBolas.forEach(b => {
+                const intervaloNumeros = setInterval(() => {
+                    b.el.setAttribute('data-numero', Math.floor(Math.random() * 99999) + 1);
+                }, 100);
+                b.el.dataset.intervaloId = intervaloNumeros;
+            });
+
+            // GSAP anima la variable matemática que rige la velocidad de la jaula (aceleración)
+            gsap.to(controlGiro, {
+                velocidad: 0.20,
+                duration: 2.5,
+                ease: "power2.in",
+                onComplete: () => {
+                    // Desaceleración
+                    gsap.to(controlGiro, {
+                        velocidad: 0.02,
+                        duration: 4,
+                        ease: "power3.out",
+                        onComplete: () => {
+                            girandoRapido = false;
+                            // Frenar el cambio de números
+                            domBolas.forEach(b => clearInterval(b.el.dataset.intervaloId));
+                        }
+                    });
+                }
+            });
+        });
+    }
+}
