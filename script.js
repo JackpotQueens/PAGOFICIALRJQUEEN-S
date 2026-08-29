@@ -390,18 +390,17 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ========================================================================= */
 if (document.getElementById('tablero-cartas')) {
     const CODIGOS_CARTAS = [
-        "10293", "84756", "39201", "56472", "91820", "27364", "65019", "48152", "73928", "20485",
+        "10292", "84756", "39201", "56472", "91820", "27364", "65019", "48152", "73928", "20485",
         "59371", "18264", "92740", "63815", "40592", "81603", "35947", "72016", "14839", "57204",
         "90651", "34182", "68529", "21974", "85307", "49163", "70425", "15896", "93240", "62718",
         "51093", "87421", "29560", "43087", "16954", "75239", "30841", "94615", "58172", "26390",
         "80914", "17538", "64027", "32159", "97684", "53410", "28796", "41350", "69073", "74805",
-        "33815", "33260", "33934", "33178", "33509", "33427", "33691", "33043", "33752", "33386",
-        "44815", "44260", "44934", "44178", "44509", "44427", "44691", "44043", "44752", "44386",
-        "55815", "55260", "55934", "55178", "55509", "55427", "55691", "55043", "55752", "55386",
-        "66815", "66260", "66934", "66178", "66509", "66427", "66691", "66043", "66752", "66386",
-        "23815", "23260", "23934", "23178", "23509", "23427", "23691", "23043", "23752", "23386"
+        "31548", "92876", "15064", "86723", "45910", "79231", "23698", "60485", "58219", "17902",
+        "46371", "81059", "25740", "93168", "64825", "37591", "19482", "50236", "71649", "82953",
+        "59841", "36107", "94528", "12790", "83465", "20917", "75384", "41806", "67152", "54093",
+        "96230", "13857", "47291", "80562", "29438", "51706", "68314", "35029", "91675", "74210",
+        "28154", "69537", "30492", "57186", "14973", "82601", "40715", "95832", "76904", "31289"
     ];
-}
     const LISTA_MINI = ["$600", "$500", "$1.000"]; const LISTA_MINOR = ["$1.200", "15% EXTRA", "$800"]; const LISTA_MAJOR = ["$1.500", "15% EXTRA", "10% EXTRA"]; const LISTA_GRAND = ["25% EXTRA","20% EXTRA", "30% EXTRA"];
 
     function getPrizePool() {
@@ -465,24 +464,24 @@ if (document.getElementById('tablero-cartas')) {
             }, 400); 
         }
     }
+}
 
 /* ========================================================================= */
 /* 5. RULETA JACKPOT (100 CÓDIGOS NUEVOS DE 5 DÍGITOS)                       */
 /* ========================================================================= */
 if (document.getElementById('ruleta-canvas')) {
     const CODIGOS_RULETA = [
-        "81273", "49302", "56184", "20937", "74815", "13092", "68541", "92705", "35418", "07629",
+        "81274", "49302", "56184", "20937", "74815", "13092", "68541", "92705", "35418", "07629",
         "29184", "73056", "58491", "16208", "94735", "30582", "81946", "42617", "65039", "09374",
         "31825", "64970", "82513", "19046", "57382", "40691", "95274", "28109", "73458", "06927",
         "49216", "71530", "28064", "53917", "16482", "90725", "34159", "85290", "67301", "02843",
         "50192", "83647", "15920", "47283", "91056", "26374", "74801", "39562", "60418", "08795",
-        "77481", "77905", "77237", "77619", "77542", "77376", "77820", "77153", "77094", "77768",
-        "78481", "78905", "78237", "78619", "78542", "78376", "78820", "78153", "78094", "78768",
-        "88481", "88905", "88237", "88619", "88542", "88376", "88820", "88153", "88094", "88768",
-        "11481", "11905", "11237", "11619", "11542", "11376", "11820", "11153", "11094", "11768",
-        "22481", "22905", "22237", "22619", "22542", "22376", "22820", "22153", "22094", "22768"
+        "61482", "92514", "38067", "51793", "20458", "86139", "47205", "15963", "73840", "09216",
+        "84519", "27603", "59142", "30875", "16409", "95328", "41097", "72651", "68934", "03582",
+        "52710", "19364", "80492", "46175", "93820", "25048", "71936", "38259", "64081", "07593",
+        "41952", "63807", "95124", "20761", "84395", "17620", "59283", "36519", "70458", "08146",
+        "37025", "91468", "25831", "69047", "14382", "58709", "42693", "80516", "76150", "01934"
     ];
-}
     const PREMIOS_RULETA = ["$500 EXTRA","$350 EXTRA","5% EXTRA","$700 EXTRA","10% EXTRA","15% EXTRA","20% EXTRA","$1.000 EXTRA"];
     const COLORES_RULETA = ["#C0392B","#8E44AD","#2980B9","#27AE60","#E67E22","#16A085","#D35400","#2C3E50","#8E44AD","#C0392B"];
     const canvasR = document.getElementById('ruleta-canvas'); const ctxR = canvasR.getContext('2d'); const sizeR = 340; canvasR.width = sizeR; canvasR.height = sizeR; const cx = sizeR/2, cy = sizeR/2, rR = sizeR/2 - 2; const totalR = 10; const stepR = (Math.PI*2)/totalR;
@@ -527,24 +526,24 @@ if (document.getElementById('ruleta-canvas')) {
             setTimeout(function(){ girando=false; if(sfxRuleta) sfxRuleta.pause(); playSound(sfxPremio); if(textoPremioR) textoPremioR.textContent=premioRuleta; currentGameType = 'RULETA'; if(modalR) modalR.classList.remove('hidden'); }, 5500);
         });
     }
+}
 
 /* ========================================================================= */
 /* 6. SÚPER JACKPOT (SLOTS - 100 CÓDIGOS NUEVOS DE 5 DÍGITOS)                */
 /* ========================================================================= */
 if (document.getElementById('codigo-super')) {
     const CODIGOS_SUPER = [ 
-        "72049", "18536", "64912", "30758", "92184", "56307", "84091", "29573", "41620", "03859",
+        "72048", "18536", "64912", "30758", "92184", "56307", "84091", "29573", "41620", "03859",
         "15947", "80426", "37190", "62584", "94031", "28765", "51309", "79642", "05218", "46873",
         "83195", "20741", "95468", "14027", "68930", "57214", "39602", "41856", "02593", "76381",
         "90452", "35176", "61908", "27845", "48319", "10672", "54280", "79134", "82067", "03591",
         "65824", "19750", "43068", "87192", "26435", "91507", "50843", "32916", "74689", "08274",
-        "96592", "96184", "96736", "96409", "96251", "96863", "96047", "96615", "96398", "96920",
-        "97592", "97184", "97736", "97409", "97251", "97863", "97047", "97615", "97398", "97920",
-        "98592", "98184", "98736", "98409", "98251", "98863", "98047", "98615", "98398", "98920",
-        "99592", "99184", "99736", "99409", "99251", "99863", "99047", "99615", "99398", "99920",
-        "89592", "89184", "89736", "89409", "89251", "89863", "89047", "89615", "89398", "89920"
+        "59381", "74620", "38194", "91725", "46038", "20583", "83946", "62157", "15479", "07824",
+        "26915", "84370", "51046", "37829", "90561", "49283", "75102", "13694", "68457", "02738",
+        "81539", "47092", "29618", "53204", "16875", "94153", "30786", "62419", "78540", "05927",
+        "45716", "93082", "18264", "61953", "70341", "24895", "89507", "36120", "52478", "07639",
+        "39260", "51847", "76093", "25418", "98706", "14352", "60985", "42137", "87529", "03194"
     ];
-}
     const PREMIOS_SUPER = ["$400", "$600", "10%", "5%", "20%", "$500", "$800", "$300", "15%"];
 
     function getSuperPrizePool() {
@@ -585,347 +584,6 @@ if (document.getElementById('codigo-super')) {
             reels.forEach((reel, index) => { reel.style.transition = `transform ${3 + index * 0.5}s cubic-bezier(0.15, 0.85, 0.15, 1)`; setTimeout(() => { reel.style.transform = `translateY(-${37 * symbolHeight}px)`; }, 50); });
             setTimeout(() => { if(payline) payline.classList.add('active'); }, 4000);
             setTimeout(() => { playSound(sfxPremio); const textoPremioS = document.getElementById('texto-premio-super'); if(textoPremioS) textoPremioS.textContent = premioAsignado + (premioAsignado.includes('%') ? "" : " EXTRA"); currentGameType = 'SUPER'; if(modalS) modalS.classList.remove('hidden'); }, 4800); 
-        });
-    }
-
-/* ========================================================================= */
-/* 7. LÓGICA DE REGISTRO ADMIN SORTEOS (NUBE CON EDICIÓN Y BORRADO)          */
-/* ========================================================================= */
-const formRegistro = document.getElementById('form-registro-sorteo');
-const cuerpoTabla = document.getElementById('cuerpo-tabla-registros');
-const btnDescargarExcel = document.getElementById('btn-descargar-excel');
-const btnLock = document.getElementById('btn-lock-planilla');
-const panelPlanilla = document.getElementById('panel-planilla');
-
-const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbxzp4u-QWeEjrRYaRLO63a6-I5V_3Ds95QVnThC6EqE1z-gnMjtU8fEzDaZ28HiJhnzFA/exec";
-
-window.registrosSorteoGlobal = [];
-
-function cargarPlanillaDesdeGoogle() {
-    cuerpoTabla.innerHTML = '<tr><td colspan="4" style="text-align:center;">Cargando planilla de la nube... <i class="fa-solid fa-spinner fa-spin"></i></td></tr>';
-    
-    // El GET para cargar la tabla NO necesita no-cors porque Google Apps Script permite leer GET públicos
-    fetch(GOOGLE_SHEETS_URL)
-    .then(res => res.json())
-    .then(data => {
-        window.registrosSorteoGlobal = data; 
-        cuerpoTabla.innerHTML = '';
-        if(data.length === 0) {
-            cuerpoTabla.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#FFD700;">La planilla está vacía todavía.</td></tr>';
-            return;
-        }
-        
-        data.forEach((registro, index) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-                <td>${registro.admin}</td>
-                <td>${registro.usuario}</td>
-                <td><strong style="color:#FFD700;">${registro.numero}</strong></td>
-                <td>
-                    <button class="btn-accion-tabla btn-editar" onclick="editarRegistro(${index})" title="Editar"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="btn-accion-tabla btn-borrar" onclick="borrarRegistro(${index})" title="Borrar"><i class="fa-solid fa-trash-can"></i></button>
-                </td>
-            `;
-            cuerpoTabla.appendChild(tr);
-        });
-    })
-    .catch(err => {
-        console.error("Error al cargar datos:", err);
-        cuerpoTabla.innerHTML = '<tr><td colspan="4" style="text-align:center; color:red;">No se pudo conectar a la nube. Actualizá la página.</td></tr>';
-    });
-}
-
-if(btnLock && panelPlanilla) {
-    btnLock.addEventListener('click', () => {
-        const password = prompt("Ingrese contraseña para desbloquear la planilla:");
-        if(password === "123456") {
-            panelPlanilla.style.display = "block";
-            btnLock.style.color = "#39FF14"; 
-            btnLock.classList.replace('fa-lock', 'fa-lock-open');
-            cargarPlanillaDesdeGoogle();
-        } else if (password !== null) {
-            alert("Contraseña incorrecta. Acceso denegado.");
-        }
-    });
-}
-
-if(formRegistro && cuerpoTabla) {
-    const ADMINS_AUTORIZADOS = ["alecajerah002", "marcecajera58gan", "yamicajera71gan", "adminjackpotsqueen"];
-    
-    function mostrarNotificacionExito() {
-        let notif = document.getElementById('notif-exito');
-        if (!notif) {
-            notif = document.createElement('div');
-            notif.id = 'notif-exito';
-            notif.className = 'notificacion-exito';
-            notif.innerHTML = '<i class="fa-solid fa-circle-check"></i><span>¡OPERACIÓN EXITOSA!</span>';
-            document.body.appendChild(notif);
-        }
-        void notif.offsetWidth;
-        notif.classList.add('mostrar');
-        setTimeout(() => { notif.classList.remove('mostrar'); }, 3000);
-    }
-
-    formRegistro.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const btnSubmit = formRegistro.querySelector('button[type="submit"]');
-        const originalText = btnSubmit.innerHTML;
-        
-        const adminInput = document.getElementById('admin-nombre').value.trim().toLowerCase();
-        const userInput = document.getElementById('user-nombre').value.trim();
-        const numInput = document.getElementById('numero-sorteo').value.trim();
-        const fechaActual = new Date().toLocaleDateString();
-        
-        if(!ADMINS_AUTORIZADOS.includes(adminInput)) {
-            alert("Error: Usuario no autorizado. Solo los cajeros de la lista oficial pueden registrar números.");
-            return;
-        }
-        
-        btnSubmit.innerHTML = 'ENVIANDO A LA NUBE... <i class="fa-solid fa-spinner fa-spin"></i>';
-        btnSubmit.disabled = true;
-
-        const formData = new FormData();
-        formData.append("action", "insert"); 
-        formData.append("admin", adminInput);
-        formData.append("usuario", userInput);
-        formData.append("numero", numInput);
-        formData.append("fecha", fechaActual);
-
-        fetch(GOOGLE_SHEETS_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-        })
-        .then(() => {
-            btnSubmit.innerHTML = originalText;
-            btnSubmit.disabled = false;
-            document.getElementById('user-nombre').value = '';
-            document.getElementById('numero-sorteo').value = '';
-            
-            mostrarNotificacionExito();
-            cargarPlanillaDesdeGoogle(); 
-        })
-        .catch(error => {
-            btnSubmit.innerHTML = originalText;
-            btnSubmit.disabled = false;
-            alert("Hubo un error de conexión al guardar el registro. Volvé a intentarlo.");
-        });
-    });
-
-    window.borrarRegistro = function(index) {
-        if(confirm("¿Estás seguro de que querés borrar este registro DEFINITIVAMENTE de la nube?")) {
-            const reg = window.registrosSorteoGlobal[index];
-            const btn = document.querySelectorAll('.btn-borrar')[index];
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-            const formData = new FormData();
-            formData.append("action", "delete");
-            formData.append("numero", reg.numero);
-            formData.append("usuario", reg.usuario);
-
-            fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', body: formData })
-            .then(() => {
-                mostrarNotificacionExito();
-                cargarPlanillaDesdeGoogle();
-            })
-            .catch(() => {
-                btn.innerHTML = originalHtml;
-                alert("Error al borrar en la nube.");
-            });
-        }
-    };
-
-    window.editarRegistro = function(index) {
-        const reg = window.registrosSorteoGlobal[index];
-        const nuevoAdmin = prompt("Editar Admin/Cajero:", reg.admin);
-        const nuevoUsuario = prompt("Editar Usuario:", reg.usuario);
-        const nuevoNum = prompt("Editar Número:", reg.numero);
-        
-        if(nuevoAdmin && nuevoUsuario && nuevoNum) {
-            if(!ADMINS_AUTORIZADOS.includes(nuevoAdmin.toLowerCase())) {
-                alert("Error: Ese Cajero no está en la lista de autorizados.");
-                return;
-            }
-
-            const btn = document.querySelectorAll('.btn-editar')[index];
-            const originalHtml = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-
-            const formData = new FormData();
-            formData.append("action", "edit");
-            formData.append("numeroViejo", reg.numero);
-            formData.append("usuarioViejo", reg.usuario);
-            formData.append("admin", nuevoAdmin.toLowerCase());
-            formData.append("usuario", nuevoUsuario);
-            formData.append("numero", nuevoNum);
-            formData.append("fecha", reg.fecha);
-
-            fetch(GOOGLE_SHEETS_URL, { method: 'POST', mode: 'no-cors', body: formData })
-            .then(() => {
-                mostrarNotificacionExito();
-                cargarPlanillaDesdeGoogle();
-            })
-            .catch(() => {
-                btn.innerHTML = originalHtml;
-                alert("Error al editar en la nube.");
-            });
-        }
-    };
-
-    if (btnDescargarExcel) {
-        btnDescargarExcel.addEventListener('click', function() {
-            window.open("https://docs.google.com/spreadsheets/d/1Tus_datos_aqui", "_blank"); 
-            alert("Todos los datos están guardados de forma centralizada en tu Excel oficial de Google Drive. Abrí tu Drive para ver o descargar la planilla.");
-        });
-    }
-}
-
-/* ========================================================================= */
-/* 8. LÓGICA DEL BOLILLERO PREMIUM 3D (MATTER.JS + GSAP)                     */
-/* ========================================================================= */
-if (document.getElementById('bolillero-premium') && typeof Matter !== 'undefined') {
-    const Engine = Matter.Engine,
-          Render = Matter.Render,
-          Runner = Matter.Runner,
-          Bodies = Matter.Bodies,
-          Composite = Matter.Composite,
-          Body = Matter.Body,
-          Events = Matter.Events;
-
-    // Crear motor con gravedad ajustada para efecto casino (bolas con peso pero flotantes)
-    const engine = Engine.create();
-    engine.world.gravity.y = 1.2;
-
-    const canvasBolillero = document.getElementById('bolillero-physics-canvas');
-    
-    // Contrucción de la Jaula (Cilindro hueco a partir de múltiples segmentos pequeños)
-    const partesJaula = [];
-    const numSegmentos = 36;
-    const radioJaula = 150;
-    const centroX = 160;
-    const centroY = 160;
-
-    for (let i = 0; i < numSegmentos; i++) {
-        const angulo = (Math.PI * 2 / numSegmentos) * i;
-        const x = centroX + Math.cos(angulo) * radioJaula;
-        const y = centroY + Math.sin(angulo) * radioJaula;
-        const segmento = Bodies.rectangle(x, y, 32, 10, {
-            angle: angulo,
-            friction: 0.1,
-            restitution: 0.4,
-            render: { visible: false }
-        });
-        partesJaula.push(segmento);
-    }
-    
-    // Agregar unas barras cruzadas internas (mixer) para empujar y mover las bolas
-    const mixer = Bodies.rectangle(centroX, centroY, 280, 15, { 
-        friction: 0.1, restitution: 0.5, render: { visible: false } 
-    });
-    partesJaula.push(mixer);
-
-    // Jaula como un solo cuerpo cinemático para poder rotarlo manualmente
-    const jaulaCompuesta = Body.create({ parts: partesJaula, isKinematic: true });
-    Composite.add(engine.world, jaulaCompuesta);
-
-    // Crear Bolas
-    const domBolas = [];
-    const coloresBolas = ['bp-rojo', 'bp-azul', 'bp-verde', 'bp-amarillo', 'bp-naranja', 'bp-violeta', 'bp-turquesa', 'bp-rosa'];
-    const contenedorFisico = document.getElementById('bolillero-premium');
-    const overlayCristal = document.querySelector('.bolillero-glass-overlay'); 
-
-    for (let i = 0; i < 35; i++) {
-        const radioBola = 18; // 36px diámetro como definimos en CSS
-        const posX = centroX + (Math.random() - 0.5) * 100;
-        const posY = centroY + (Math.random() - 0.5) * 100;
-        
-        const cuerpoBola = Bodies.circle(posX, posY, radioBola, {
-            restitution: 0.85, // Muy rebotadoras
-            friction: 0.005,
-            density: 0.05
-        });
-        Composite.add(engine.world, cuerpoBola);
-
-        const elDOM = document.createElement('div');
-        elDOM.className = 'bola-premium-fisica ' + coloresBolas[Math.floor(Math.random() * coloresBolas.length)];
-        elDOM.setAttribute('data-numero', Math.floor(Math.random() * 9999) + 1);
-        
-        // Posicionamiento base
-        elDOM.style.top = '0';
-        elDOM.style.left = '0';
-        
-        // Insertar detrás de la capa de brillo de cristal para mantener la profundidad 3D
-        contenedorFisico.insertBefore(elDOM, overlayCristal);
-
-        domBolas.push({ body: cuerpoBola, el: elDOM });
-    }
-
-    // Variable reactiva para GSAP
-    const controlGiro = { velocidad: 0.02 };
-
-    // Bucle antes de calcular físicas: Impartir velocidad a la jaula
-    Events.on(engine, 'beforeUpdate', function() {
-        Body.setAngularVelocity(jaulaCompuesta, controlGiro.velocidad);
-    });
-
-    const domJaulaFrontal = document.getElementById('bolillero-cage-spin');
-    const domManivela = document.getElementById('manivela-giro');
-
-    // Bucle después de calcular físicas: Sincronizar el DOM con las posiciones matemáticas
-    Events.on(engine, 'afterUpdate', function() {
-        domBolas.forEach(b => {
-            // Ajustar el offset (+30) ya que el canvas de físicas mide 320 y el contenedor mide 380 ((380-320)/2 = 30)
-            const tx = b.body.position.x - 18 + 30; // 18 es el radio (mitad de 36px)
-            const ty = b.body.position.y - 18 + 30;
-            b.el.style.transform = `translate(${tx}px, ${ty}px) rotate(${b.body.angle}rad)`;
-        });
-
-        // Sincronizar UI Visual del oro y la manivela
-        if (domJaulaFrontal) domJaulaFrontal.style.transform = `rotate(${jaulaCompuesta.angle}rad)`;
-        if (domManivela) domManivela.style.transform = `rotate(${jaulaCompuesta.angle}rad)`;
-    });
-
-    Runner.run(Runner.create(), engine);
-
-    // Interacción Botón ¡SUERTE!
-    const btnSuerte = document.querySelector('.btn-suerte-redondo-gigante');
-    let girandoRapido = false;
-
-    if (btnSuerte && typeof gsap !== 'undefined') {
-        btnSuerte.addEventListener('click', () => {
-            if (girandoRapido) return;
-            girandoRapido = true;
-            
-            playSound(sfxRuleta);
-
-            // Cambiar todos los números intermitentemente mientras gira
-            domBolas.forEach(b => {
-                const intervaloNumeros = setInterval(() => {
-                    b.el.setAttribute('data-numero', Math.floor(Math.random() * 99999) + 1);
-                }, 100);
-                b.el.dataset.intervaloId = intervaloNumeros;
-            });
-
-            // GSAP anima la variable matemática que rige la velocidad de la jaula (aceleración)
-            gsap.to(controlGiro, {
-                velocidad: 0.20,
-                duration: 2.5,
-                ease: "power2.in",
-                onComplete: () => {
-                    // Desaceleración
-                    gsap.to(controlGiro, {
-                        velocidad: 0.02,
-                        duration: 4,
-                        ease: "power3.out",
-                        onComplete: () => {
-                            girandoRapido = false;
-                            // Frenar el cambio de números
-                            domBolas.forEach(b => clearInterval(b.el.dataset.intervaloId));
-                        }
-                    });
-                }
-            });
         });
     }
 }
